@@ -31,3 +31,7 @@ export const fetchPages = async ({ slug }: { slug?: string }) => {
     ]
   })
 }
+
+export const fetchlocksBlocksByPageId = async (pageId: string) => {
+  return await notion.blocks.children.list({block_id: pageId})
+}
