@@ -18,9 +18,13 @@ slug: string;
 
 export type CardProps = { page: PageType };
 
+export type ArticleMetaProps = CardProps;
+
 export type IndexProps = {
   pages: PageType[]
 }
+
+export type TagProps = IndexProps & {tag: string}
 
 export type ArticleProps = {
   page: PageType,

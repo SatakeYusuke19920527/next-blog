@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { FC } from 'react';
-import { ArticleProps } from '../types/types';
+import { ArticleMetaProps } from '../types/types';
 import { getCover, getDate, getMultiSelect, getText } from '../utils/property';
 
-const ArticleMeta: FC<ArticleProps> = ({ page }) => {
+const ArticleMeta: FC<ArticleMetaProps> = ({ page }) => {
   return (
     <>
       {/* page cover */}
@@ -37,9 +38,17 @@ const ArticleMeta: FC<ArticleProps> = ({ page }) => {
           <div className="col-span-1">Tags</div>
           <div className="col-span-2">
             {/* change later */}
-            {getMultiSelect(page.properties.tags.multi_select).map((tag: string, index: number) => (
-              <span key={index}>{`#${tag} `}</span>
-            ))}
+            {getMultiSelect(page.properties.tags.multi_select).map(
+              (tag: string, index: number) => (
+                <Link
+                  key={index}
+                  href={`/tags/${tag}`}
+                  className="text-gray-700 no-underline border-b border-solid border-gray-700 opacity-70 mr-3"
+                >
+                  <span>{`#${tag}`}</span>
+                </Link>
+              )
+            )}
           </div>
         </div>
       </div>
