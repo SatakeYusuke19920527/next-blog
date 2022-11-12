@@ -3,7 +3,7 @@ import NotionBlocks from 'notion-block-renderer';
 import ArticleMeta from '../../components/ArticleMeta';
 import Layout from '../../components/Layout';
 import { ArticleProps, Params } from '../../types/types';
-import { fetchlocksBlocksByPageId, fetchPages } from '../../utils/notion';
+import { fetchBlocksByPageId, fetchPages } from '../../utils/notion';
 import { getText } from '../../utils/property';
 
 
@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { results } = await fetchPages({slug: slug})
   const page = results[0]
   const pageId = page.id
-  const { results: blocks } = await fetchlocksBlocksByPageId(pageId)
+  const { results: blocks } = await fetchBlocksByPageId(pageId);
   return {
     props: {
       page: page,
@@ -43,7 +43,7 @@ const Article: NextPage<ArticleProps> = ({ page, blocks }) => {
       <article className="w-full">
         {/* meta section */}
         <div className="my-12">
-          <ArticleMeta page={page} blocks={blocks} />
+          <ArticleMeta page={page} />
         </div>
 
         {/* article */}
