@@ -43,7 +43,7 @@ const Article: NextPage<ArticleProps> = ({ page, blocks }) => {
       <article className="w-full">
         {/* meta section */}
         <div className="my-12">
-          <ArticleMeta page={page} />
+          <ArticleMeta page={page} blocks={blocks} />
         </div>
 
         {/* article */}

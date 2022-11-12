@@ -28,7 +28,8 @@ export type ArticleProps = {
 }
 
 export type Params = ParsedUrlQuery & {
-  slug: string
+  slug: string,
+  tag?: string
 }
 
 export type FileType = {
@@ -73,7 +74,6 @@ export type PropertyType = {
 export type PageType = {
   id: string,
   cover: FileType | null
-  // properties: Record<string, any>
   properties: PropertyType
 }
 
